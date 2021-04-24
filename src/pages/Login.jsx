@@ -107,6 +107,10 @@ class Login extends Component {
                     width="30"
                     height="40"
                     className="rounded-circle mr-2"
+                    onError={(e) =>
+                      (e.target.src =
+                        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWkk6tEBms7CRug7wsM4xXjHFoOMCIYt5lQrBenScdrTvzgYg9zhJo5kGH06bKV0PVokY&usqp=CAU")
+                    }
                   />
                   {user.name}
                 </span>
