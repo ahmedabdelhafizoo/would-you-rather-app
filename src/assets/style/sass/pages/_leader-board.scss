@@ -1,0 +1,39 @@
+.leader-board {
+  .user-card {
+    overflow: hidden;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: -35px;
+      left: -45px;
+      width: 75px;
+      height: 75px;
+      display: block;
+      background: #e0e0e0;
+      transform: rotate(45deg);
+    }
+
+    &::before {
+      content: "\2605";
+      position: absolute;
+      top: -2px;
+      left: 2px;
+      font-size: 25px;
+      z-index: 1;
+    }
+
+    &:first-of-type::before {
+      color: #ff9800;
+    }
+
+    &:nth-of-type(2)::before {
+      color: #28a745;
+    }
+
+    &:last-of-type::before {
+      color: gray;
+    }
+  }
+}

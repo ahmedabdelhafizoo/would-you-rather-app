@@ -1,0 +1,14 @@
+.home {
+  .nav {
+    .nav-link {
+      padding: 12px 10px;
+      font-weight: 500;
+      transition: all .2s;
+      cursor: pointer;
+      &.active {
+        background: $mainColor;
+        color: #fff;
+      }
+    }
+  }
+}

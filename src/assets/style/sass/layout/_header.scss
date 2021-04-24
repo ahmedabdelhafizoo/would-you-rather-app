@@ -1,0 +1,17 @@
+.header {
+  background: $mainColor;
+  .nav-item {
+    &:not(:last-of-type) {
+      @include minLgScreen {
+        margin-right: 30px;
+      }
+    }
+    @include maxLgScreen {
+      text-align: center;
+      margin-bottom: 10px;
+      a {
+        display: inline-block;
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+// media query helpers
+@mixin maxExScreen {
+  @media (max-width: 575.98px) {
+    @content;
+  }
+}
+
+@mixin maxSmScreen {
+  @media (max-width: 767.98px) {
+    @content;
+  }
+}
+
+@mixin maxMdScreen {
+  @media (max-width: 991.98px) {
+    @content;
+  }
+}
+
+@mixin maxLgScreen {
+  @media (max-width: 1199.98px) {
+    @content;
+  }
+}
+
+@mixin minSmScreen {
+  @media (min-width: 576px) {
+    @content;
+  }
+}
+
+@mixin minMdScreen {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin minLgScreen {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}

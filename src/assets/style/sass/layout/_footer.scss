@@ -1,0 +1,16 @@
+.footer {
+  color: $grayColor;
+  background: $lightGray;
+  &__logo {
+      max-width: 150px;
+  }
+
+  &__nav {
+    &__link {
+      color: $grayColor;
+      &:hover {
+        color: $mainColor;
+      }
+    }
+  }
+}

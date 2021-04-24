@@ -1,0 +1,56 @@
+.form {
+  .form__input {
+    border: 1px solid $lightGray;
+    outline: none;
+    height: 45px;
+    width: 100%;
+    padding: 10px 20px;
+    transition: border 0.5s;
+    font-size: 14px;
+    &:focus {
+      border-color: $mainColor;
+    }
+  }
+  &__btn {
+    height: 45px;
+  }
+
+  .custom-radio-btn {
+    .label-value {
+      padding-left: 33px;
+      position: relative;
+      cursor: pointer;
+      &::before, &::after {
+        display: inline-block;
+        position: absolute;
+        transition: background .2s, transform .3s;
+      }
+      &::before {
+        content: "";
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        border: 1px solid $lightGray;
+        left: 0;
+        top: -2px;
+      }
+      &::after {
+        content: "\2714";
+        left: 6px;
+        top: 0;
+        color: #fff;
+        font-size: 14px;
+        transform: scale(.8) rotate(-180deg);
+      }
+    }
+
+    input:checked {
+      & + .label-value::before {
+        background: $secondColor ;
+      }
+      & + .label-value::after {
+        transform: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+.btn {
+  border: 0;
+  outline: 0;
+  font-weight: 500;
+  padding: 8px 12px;
+  display: inline-block;
+  transition: all .3s;
+  font-size: 15px;
+
+  &--red {
+    background: $secondColor;
+    color: #fff;
+    &:hover {
+      background: $darkRed;
+    }
+  }
+
+  &--white {
+    background: #fff;
+
+    &:hover {
+      background: darken(#fff, 5%);
+    }
+  }
+}

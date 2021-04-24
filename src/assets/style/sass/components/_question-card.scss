@@ -1,0 +1,44 @@
+.question-card {
+  input[type="radio"], input[type="checkbox"] {
+    opacity: 0;
+    width: 1px;
+  }
+  .question-answer {
+    &:not(:last-of-type) {
+      margin-bottom: 10px;
+    }
+
+    &.answered {
+      background: rgba($mainColor, .9);
+      color: #fff;
+      position: relative;
+      &::after {
+        content: "Your Vote";
+        width: 50px;
+        height: 50px;
+        background: $secondColor;
+        border-radius: 50%;
+        position: absolute;
+        top: -25px;
+        right: -25px;
+        font-size: 12px;
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+      }
+      .progress {
+        background: #fff;
+      }
+    }
+
+    .progress {
+      height: 20px;
+      background: rgb(245, 244, 244);
+      .progress-bar {
+        background: $secondColor;
+      }
+    }
+
+  }
+}

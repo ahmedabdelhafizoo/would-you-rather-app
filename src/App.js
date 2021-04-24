@@ -1,25 +1,82 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
+import LoadingBar from "react-redux-loading";
+import { connect } from "react-redux";
+import { initData } from "./store/actions/shared";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import AppHeader from "./components/AppHeader";
+import Home from "./pages/Home";
+import AddQuestion from "./pages/AddQuestion";
+import Question from "./pages/Question";
+import LeaderBoard from "./pages/LeaderBoard";
+import Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
+import NotFound from "./pages/NotFound";
+
+class App extends Component {
+  componentDidMount() {
+    this.props.dispatch(initData());
+  }
+
+  redirectToLoginPage = () => {
+    setTimeout(() => {
+      alert("You should login to open this page");
+    }, 300);
+    return <Redirect to="/login" />;
+  };
+
+  render() {
+    return (
+      <BrowserRouter>
+        <div className="App">
+          <AppHeader />
+          <LoadingBar />
+          <div className="container my-4 py-3">
+            <Switch>
+              <Route path="/login">
+                <Login />
+              </Route>
+              <Route path="/signup">
+                <SignUp />
+              </Route>
+
+              <Route path="/" exact>
+                {this.props.authUser ? <Home /> : this.redirectToLoginPage}
+              </Route>
+              <Route path="/add">
+                {this.props.authUser ? (
+                  <AddQuestion />
+                ) : (
+                  this.redirectToLoginPage
+                )}
+              </Route>
+              <Route path="/questions/:id">
+                {this.props.authUser ? <Question /> : this.redirectToLoginPage}
+              </Route>
+
+              <Route path="/leaderboard">
+                {this.props.authUser ? (
+                  <LeaderBoard />
+                ) : (
+                  this.redirectToLoginPage
+                )}
+              </Route>
+
+              <Route>
+                <NotFound />
+              </Route>
+            </Switch>
+          </div>
+        </div>
+      </BrowserRouter>
+    );
+  }
 }
 
-export default App;
+function mapStateToProps({ authUser }) {
+  return {
+    authUser,
+  };
+}
+
+export default connect(mapStateToProps)(App);
