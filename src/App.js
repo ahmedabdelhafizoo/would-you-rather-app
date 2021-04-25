@@ -20,7 +20,7 @@ class App extends Component {
 
   redirectToLoginPage = () => {
     setTimeout(() => {
-      alert("You should login to open this page");
+      alert("You should login to use this app");
     }, 300);
     return <Redirect to="/login" />;
   };

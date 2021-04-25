@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import QuestionCard from "./../components/QuestionCard";
+import QuestionCard from "../components/QuestionCard";
 
 class Home extends Component {
   state = {
